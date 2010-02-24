@@ -17,7 +17,7 @@ class RISBN
 
   # Provide a string with the isbn. Any non digit or X character will be removed.
   def initialize(code = "")
-    @isbn = code.to_s.upcase.gsub(/[^0-9X]/, "")
+    @isbn = (code || "").to_s.upcase.gsub(/[^0-9X]/, "")
   end
 
   def valid?
