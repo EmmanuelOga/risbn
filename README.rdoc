@@ -1,9 +1,32 @@
 = risbn
 
-Description goes here.
+Minimal set of tools for working with isbns from ruby.
+
+Supports both isbn-10 and isbn-13.
+
+Provides a simple (barebones) tool for extracting isbns from pdf and chm files.
+
+== Examples:
+
+  isbn = RISBN.parse_first("Some text with and isbn: ISBN-13: 978-0393317732") # => <RISBN isbn="9780393317732">
+  isbn.valid? # => true
+
+  require 'risbn/scanner'
+  RISBN::Scanner.scan("some/file.pdf")
+  RISBN::Scanner.scan("some/file.chm")
+  RISBN::Scanner.scan("some/file.tx")
+
+== Notes
+
+Currently only works on unix like platforms.
+
+Requires the following tools for scanning files:
+
+* Poppler for pdf (pdftotext utility)
+* Archmage for chm
 
 == Note on Patches/Pull Requests
- 
+
 * Fork the project.
 * Make your feature addition or bug fix.
 * Add tests for it. This is important so I don't break it in a

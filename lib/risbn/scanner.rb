@@ -10,6 +10,9 @@ class RISBN
   module Scanner
     extend self
 
+    # provide a file path of a file to scan for the first found isbn.
+    # currently scans pdfs using poppler, chm using archmage and text files.
+    # Also, requires the unix utility "file"
     def scan(path)
       case identify(path)
       when /PDF/      then scan_pdf(path)
