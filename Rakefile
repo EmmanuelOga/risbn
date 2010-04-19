@@ -5,13 +5,13 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "risbn"
-    gem.summary = %Q{some utils to handle isbn numbers}
-    gem.description = %Q{some utils to handle isbn numbers}
+    gem.summary = %Q{Utils to handle isbns}
+    gem.description = %Q{Utils to handle isbns}
     gem.email = "EmmanuelOga@gmail.com"
     gem.homepage = "http://github.com/EmmanuelOga/risbn"
     gem.authors = ["Emmanuel Oga"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+    gem.add_dependency "nokogiri"
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
