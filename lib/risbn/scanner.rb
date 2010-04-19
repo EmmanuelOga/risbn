@@ -1,6 +1,5 @@
 require 'shellwords'
 require 'tmpdir'
-require 'iconv'
 
 class RISBN
 
