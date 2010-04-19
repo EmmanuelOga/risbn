@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:gbs="http://schemas.google.com/books/2008" xmlns:dc="http://purl.org/dc/terms" xmlns:batch="http://schemas.google.com/gdata/batch" xmlns:gd="http://schemas.google.com/g/2005">
+   <id>http://www.google.com/books/feeds/volumes/VOS6IlCsuU4C</id>
+   <updated>2010-04-19T14:35:30.000Z</updated>
+   <category scheme="http://schemas.google.com/g/2005#kind" term="http://schemas.google.com/books/2008#volume"/>
+   <title type="text">JavaScript</title>
+   <link rel="http://schemas.google.com/books/2008/thumbnail" type="image/x-unknown" href="http://bks8.books.google.com/books?id=VOS6IlCsuU4C&amp;printsec=frontcover&amp;img=1&amp;zoom=5&amp;edge=curl&amp;sig=ACfU3U3gH3x5RUB3-HuSK5bnyrSJqYRtlQ&amp;source=gbs_gdata"/>
+   <link rel="http://schemas.google.com/books/2008/info" type="text/html" href="http://books.google.com/books?id=VOS6IlCsuU4C&amp;ie=ISO-8859-1&amp;source=gbs_gdata"/>
+   <link rel="http://schemas.google.com/books/2008/annotation" type="application/atom+xml" href="http://www.google.com/books/feeds/users/me/volumes"/>
+   <link rel="alternate" type="text/html" href="http://books.google.com/books?id=VOS6IlCsuU4C&amp;ie=ISO-8859-1"/>
+   <link rel="self" type="application/atom+xml" href="http://www.google.com/books/feeds/volumes/VOS6IlCsuU4C"/>
+   <gbs:embeddability value="http://schemas.google.com/books/2008#embeddable"/>
+   <gbs:openAccess value="http://schemas.google.com/books/2008#disabled"/>
+   <gd:rating min="1" max="5" average="4.19"/>
+   <gbs:viewability value="http://schemas.google.com/books/2008#view_partial"/>
+   <dc:creator>David Flanagan</dc:creator>
+   <dc:date>2006</dc:date>
+   <dc:description>This Fifth Edition is completely revised and expanded to cover JavaScript as it is used in today's Web 2.0 applications. This book is both an example-driven programmer's guide and a keep-on-your-desk reference, with new chapters that explain everything you need to know to get the most out of JavaScript, including: Scripted HTTP and Ajax XML processing Client-side graphics using the canvas tag Namespaces in JavaScript--essential when writing complex programs Classes, closures, persistence, Flash, and JavaScript embedded in Java applications Part I explains the core JavaScript language in detail. If you are new to JavaScript, it will teach you the language. If you are already a JavaScript programmer, Part I will sharpen your skills and deepen your understanding of the language. Part II explains the scripting environment provided by web browsers, with a focus on DOM scripting with unobtrusive JavaScript. The broad and deep coverage of client-side JavaScript is illustrated with many sophisticated examples that demonstrate how to: Generate a table of contents for an HTML document Display DHTML animations Automate form validation Draw dynamic pie charts Make HTML elements draggable Define keyboard shortcuts for web applications Create Ajax-enabled tool tips Use XPath and XSLT on XML documents loaded with Ajax And much more Part III is a complete reference for core JavaScript. It documents every class, object, constructor, method, function, property, and constant defined by JavaScript 1.5 and ECMAScript Version 3. Part IV is a reference for client-side JavaScript, covering legacy web browser APIs, the standard Level 2 DOM API, and emerging standards such as the XMLHttpRequestobject and the canvas tag. More than 300,000 JavaScript programmers around the world have made this their indispensable reference book for building JavaScript applications. ""A must-have reference for expert JavaScript programmers...well-organized and detailed."" -- Brendan Eich, creator of JavaScript</dc:description>
+   <dc:format>Dimensions 17.8x24.0x5.2 cm</dc:format>
+   <dc:format>1028 pages</dc:format>
+   <dc:format>book</dc:format>
+   <dc:identifier>VOS6IlCsuU4C</dc:identifier>
+   <dc:identifier>ISBN:0596101996</dc:identifier>
+   <dc:identifier>ISBN:9780596101992</dc:identifier>
+   <dc:language>en</dc:language>
+   <dc:publisher>O'Reilly Media, Inc.</dc:publisher>
+   <dc:subject>JavaScript (Computer program language)</dc:subject>
+   <dc:subject>Web servers</dc:subject>
+   <dc:subject>Object-oriented programming (Computer science)</dc:subject>
+   <dc:subject>Web servers</dc:subject>
+   <dc:subject>JavaScript (Computer program language)</dc:subject>
+   <dc:subject>Object-oriented programming (Computer science)</dc:subject>
+   <dc:subject>Ajax (Web site development technology)</dc:subject>
+   <dc:subject>Scripting languages (Computer science)</dc:subject>
+   <dc:subject>Computers / Programming Languages / JavaScript &amp; VBScript</dc:subject>
+   <dc:subject>Computers / General</dc:subject>
+   <dc:subject>Computers / Interactive &amp; Multimedia</dc:subject>
+   <dc:subject>Computers / Internet / General</dc:subject>
+   <dc:subject>Computers / Internet / Browsers</dc:subject>
+   <dc:subject>Computers / Internet / Hardware</dc:subject>
+   <dc:subject>Computers / Internet / Security</dc:subject>
+   <dc:subject>Computers / Internet / Web Page Design</dc:subject>
+   <dc:subject>Computers / Internet / World Wide Web</dc:subject>
+   <dc:subject>Computers / Programming / Software Development</dc:subject>
+   <dc:subject>Computers / Programming Languages / General</dc:subject>
+   <dc:subject>Computers / Programming Languages / HTML</dc:subject>
+   <dc:subject>Computers / Programming Languages / Java</dc:subject>
+   <dc:subject>Computers / Programming Languages / XML</dc:subject>
+   <dc:subject>Computers / Programming Languages / Java</dc:subject>
+   <dc:title>JavaScript</dc:title>
+   <dc:title>the definitive guide</dc:title>
+</entry>

@@ -1,5 +1,7 @@
 class RISBN
-  attr_accessor :isbn
+  class InvalidISBN < ArgumentError; end
+
+  attr_reader :isbn
 
   # Gross, but good to catch anything even remotely similar to a ISBN.
   # Later, we can validate to see if it really is a ISBN.
@@ -27,6 +29,10 @@ class RISBN
     else
       false
     end
+  end
+
+  def validate!
+    raise InvalidISBN unless valid?
   end
 
   def to_s
@@ -61,4 +67,8 @@ class RISBN
     result = 0 if result == 10
     result == checksum
   end
+end
+
+def RISBN(text)
+  RISBN.parse_first(text)
 end
