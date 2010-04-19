@@ -43,3 +43,22 @@ Rake::RDocTask.new do |rdoc|
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
+
+
+task :fixturize do
+  $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), 'lib'))
+  require 'risbn'
+  require 'risbn/gdata'
+
+  isbn = RISBN(ENV["ISBN"])
+
+  if isbn.valid?
+    fpath = File.join(File.dirname(__FILE__), "spec", "fixtures", "#{ENV["ISBN"]}.xml")
+
+    File.open(fpath, "w") do |f|
+      f << isbn.gdata.xml
+    end
+  else
+    puts "provide a valid ISBN as an env var."
+  end
+end
