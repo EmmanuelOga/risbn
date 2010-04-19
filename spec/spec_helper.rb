@@ -6,7 +6,7 @@ require 'risbn/gdata'
 require 'spec'
 require 'spec/autorun'
 
-GDATA_FIXTURE_PATH = File.join(File.dirname(__FILE__), 'fixtures', 'book.xml')
+FIXTURE = lambda { |f| File.read File.join(File.dirname(__FILE__), 'fixtures', f) }
 
 Spec::Runner.configure do |config|
 end

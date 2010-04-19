@@ -18,7 +18,7 @@ describe RISBN::GData do
 
   context "#data" do
     let(:isbn) { RISBN("9780596101992") }
-    before     { isbn.gdata.stub!(:xml).and_return(File.read(GDATA_FIXTURE_PATH)) }
+    before     { isbn.gdata.stub!(:xml).and_return(FIXTURE["book.xml"]) }
 
     let(:required_keys) do
       more = [:open_access, :rating_max, :rating_min, :thumbnail_url,
@@ -27,7 +27,6 @@ describe RISBN::GData do
     end
 
     subject { isbn.gdata.data }
-
     it { should be_an_instance_of(RISBN::GData::BookData) }
 
     it "maps the attributes of the hash form of the google response to an struct" do
@@ -38,6 +37,15 @@ describe RISBN::GData do
       isbn.gdata.data.to_hash.should  be_an_instance_of(Hash)
       isbn.gdata.data.keys.should     be_an_instance_of(Array)
       isbn.gdata.data.keys.should_not be_empty
+    end
+  end
+
+  context "specific cases" do
+    context "0072253592" do
+      let(:isbn) { RISBN("0072253592") }
+      before     { isbn.gdata.stub!(:xml).and_return(FIXTURE["#{isbn.to_s}.xml"]) }
+      subject    { isbn.gdata.data }
+      it         { should be_an_instance_of(RISBN::GData::BookData) }
     end
   end
 end

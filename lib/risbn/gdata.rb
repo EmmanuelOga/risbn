@@ -44,28 +44,32 @@ class RISBN
     # returns an openstruct with a massaged version of the original xml data.
     def data
       return @data if @data
-      h, data = to_hash, BookData.new
+      google_hash, data = to_hash, BookData.new
 
-      data.creator       = h[:creator]
-      data.date          = h[:date]
-      data.description   = h[:description]
-      data.format        = h[:format]
-      data.id            = h[:id]
-      data.identifier    = h[:identifier]
-      data.language      = h[:language]
-      data.publisher     = h[:publisher]
-      data.rating        = h[:rating][:attributes][:average].to_f
-      data.rating_max    = h[:rating][:attributes][:max].to_f
-      data.rating_min    = h[:rating][:attributes][:min].to_f
-      data.subject       = h[:subject].map { |s| s.split(/ [\-\/] /) }.flatten.map(&:strip).uniq.sort
-      data.title         = h[:title].uniq.join(" ")
-      data.updated       = h[:updated]
-      data.category      = h[:category]
-      data.embeddability = h[:embeddability][:value]
-      data.open_access   = h[:openAccess][:value]
-      data.viewability   = h[:viewability][:value]
+      data.creator       = google_hash[:creator]
+      data.date          = google_hash[:date]
+      data.description   = google_hash[:description]
+      data.format        = google_hash[:format]
+      data.id            = google_hash[:id]
+      data.identifier    = google_hash[:identifier]
+      data.language      = google_hash[:language]
+      data.publisher     = google_hash[:publisher]
 
-      h[:link].each do |link|
+      if google_hash[:rating] && google_hash[:rating][:attributes]
+        data.rating        = google_hash[:rating][:attributes][:average].to_f
+        data.rating_max    = google_hash[:rating][:attributes][:max].to_f
+        data.rating_min    = google_hash[:rating][:attributes][:min].to_f
+      end
+
+      data.subject       = google_hash[:subject].map { |s| s.split(/ [\-\/] /) }.flatten.map(&:strip).uniq.sort
+      data.title         = google_hash[:title].uniq.join(" ")
+      data.updated       = google_hash[:updated]
+      data.category      = google_hash[:category]
+      data.embeddability = google_hash[:embeddability][:value]
+      data.open_access   = google_hash[:openAccess][:value]
+      data.viewability   = google_hash[:viewability][:value]
+
+      google_hash[:link].each do |link|
         href = link.is_a?(Hash) ? link[:attributes][:href] : link.last[:href]
         rel  = link.is_a?(Hash) ? link[:attributes][:rel]  : link.last[:rel]
         data.send("#{rel[/thumbnail|info|annotation|alternate|self/]}_url=", href)
