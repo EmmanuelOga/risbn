@@ -21,14 +21,16 @@ class RISBN
 
     # performs a google search by isbn to retrieve the actual google book id.
     def entry_url
-      @info ||= ( Nokogiri(open(search_url).read) / "entry" / "id" ).inner_text
+      @info ||= ( Nokogiri(open(search_url).read) / "entry:first" / "id" ).first.inner_text
+    rescue => e
+      raise RuntimeError, "coult not open search url: #{search_url}  : \n#{e}"
     end
 
     # returns the original book xml from google.
     def xml
       @entry ||= open(entry_url).read
     rescue => e
-      raise RuntimeError, "coult not open url: #{entry_url}  : \n#{e}"
+      raise RuntimeError, "coult not open entry url: #{entry_url}  : \n#{e}"
     end
 
     # nokogiri nodes from the xml
