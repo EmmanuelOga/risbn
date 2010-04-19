@@ -6,21 +6,29 @@ Supports both isbn-10 and isbn-13.
 
 Provides a simple (barebones) tool for extracting isbns from pdf and chm files.
 
+Provides barebones google data integration for retrieving all sorts of information from the isbn.
+
 == Examples:
 
+  require 'isbn'
   isbn = RISBN.parse_first("Some text with and isbn: ISBN-13: 978-0393317732") # => <RISBN isbn="9780393317732">
   isbn.valid? # => true
 
   require 'risbn/scanner'
   RISBN::Scanner.scan("some/file.pdf")
   RISBN::Scanner.scan("some/file.chm")
-  RISBN::Scanner.scan("some/file.tx")
+  RISBN::Scanner.scan("some/file.txt")
+
+  require 'risbn/gdata'
+  RISBN::GData("978-0393317732").data        # <OpenStruct self_url="http://www.google.com/books/feeds/volumes/kom8GwAACAAJ", ...
+  RISBN::GData("978-0393317732").data.rating # => 3.0
+
+  # ...
 
 == Notes
 
-Currently only works on unix like platforms.
-
-Requires the following tools for scanning files:
+The chm/pdf extraction only works on unix like platforms currently and requires
+the following tools for scanning files:
 
 * Poppler for pdf (pdftotext utility)
 * Archmage for chm
