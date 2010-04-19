@@ -44,7 +44,7 @@ class RISBN
     # returns an openstruct with a massaged version of the original xml data.
     def data
       return @data if @data
-      h, data = to_hash, OpenStruct.new
+      h, data = to_hash, BookData.new
 
       data.creator       = h[:creator]
       data.date          = h[:date]
@@ -74,6 +74,15 @@ class RISBN
       @data = data
     end
 
+    class BookData < OpenStruct
+      def to_hash
+        @table.dup
+      end
+
+      def keys
+        @table.keys
+      end
+    end
   end
 end
 

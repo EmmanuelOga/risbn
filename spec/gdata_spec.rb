@@ -16,23 +16,28 @@ describe RISBN::GData do
     expect { RISBN::GData(RISBN("6660596101992")) }.to raise_exception(RISBN::InvalidISBN)
   end
 
-  context "retrieving gdata" do
-    before do
-      @isbn = RISBN("9780596101992")
-      @isbn.gdata.stub!(:xml).and_return(File.read(GDATA_FIXTURE_PATH))
+  context "#data" do
+    let(:isbn) { RISBN("9780596101992") }
+    before     { isbn.gdata.stub!(:xml).and_return(File.read(GDATA_FIXTURE_PATH)) }
+
+    let(:required_keys) do
+      more = [:open_access, :rating_max, :rating_min, :thumbnail_url,
+              :info_url, :annotation_url, :alternate_url, :self_url]
+      isbn.gdata.to_hash.keys.uniq - [:link, :openAccess] + more
     end
 
-    it "returns an OpenStruct" do
-      @isbn.gdata.data.should be_an_instance_of(OpenStruct)
+    subject { isbn.gdata.data }
+
+    it { should be_an_instance_of(RISBN::GData::BookData) }
+
+    it "maps the attributes of the hash form of the google response to an struct" do
+      required_keys.each { |key| should respond_to(key) }
     end
 
-    it "maps the attributes of the hash form of google response to an struct" do
-      additional_keys = [:open_access, :rating_max, :rating_min, :thumbnail_url,
-        :info_url, :annotation_url, :alternate_url, :self_url]
-
-      ( @isbn.gdata.to_hash.keys.uniq - [:link, :openAccess] + additional_keys).each do |key|
-        @isbn.gdata.data.should respond_to(key)
-      end
+    it "is able to convert the struct to a hash and return its keys" do
+      isbn.gdata.data.to_hash.should  be_an_instance_of(Hash)
+      isbn.gdata.data.keys.should     be_an_instance_of(Array)
+      isbn.gdata.data.keys.should_not be_empty
     end
   end
 end
