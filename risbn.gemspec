@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
      "lib/risbn/nokogiri_utils.rb",
      "lib/risbn/scanner.rb",
      "lib/risbn/version.rb",
+     "risbn.gemspec",
      "spec/fixtures/book.xml",
      "spec/gdata_spec.rb",
      "spec/risbn_spec.rb",
